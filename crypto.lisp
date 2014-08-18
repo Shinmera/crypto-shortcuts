@@ -8,7 +8,6 @@
   (:nicknames #:org.tymoonnext.radiance.lib.crypto-shortcuts #:cryptos)
   (:use #:cl)
   (:export
-   #:get-cipher
    #:to-base64
    #:from-base64
    #:encrypt
@@ -52,10 +51,12 @@
   (:documentation "Return the corresponding cipher."))
 
 (defgeneric encrypt (text key &key mode IV)
-  (:documentation "Encrypt the text with the provided key, using the specified AES mode."))
+  (:documentation "Encrypt the text with the provided key, using the specified AES mode.
+Depending on the mode, the key should most likely be of length 8, 16 or 32."))
 
 (defgeneric decrypt (text key &key mode IV)
-  (:documentation "Decrypt the text with the provided key, using the specified AES mode."))
+  (:documentation "Decrypt the text with the provided key, using the specified AES mode.
+Depending on the mode, the key should most likely be of length 8, 16 or 32."))
 
 (defmethod get-cipher ((key string) &key mode IV)
   (get-cipher (ironclad:ascii-string-to-byte-array key) :mode mode :IV IV))
@@ -85,7 +86,7 @@
     (values (from-base64 text) key mode IV)))
 
 (defgeneric make-salt (salt)
-  (:documentation "Create a salt."))
+  (:documentation "Create a salt from the given object."))
 
 (defmethod make-salt ((salt T)) (ironclad:make-random-salt))
 (defmethod make-salt ((salt integer)) (ironclad:make-random-salt salt))
@@ -93,6 +94,10 @@
 (defmethod make-salt ((salt vector)) salt)
 
 (defun pbkdf2-key (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+  "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash as a byte-array, the salt as a string, the digest and number of iterations."
   (setf salt (make-salt salt))
   (values (ironclad:pbkdf2-hash-password (ironclad:ascii-string-to-byte-array (to-base64 password))
                                          :salt salt :digest digest :iterations iterations)
@@ -100,6 +105,10 @@
           digest iterations))
 
 (defun pbkdf2-hash (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+  "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash and salt as a string, the digest and number of iterations."
   (setf salt (make-salt salt))
   (values (ironclad:byte-array-to-hex-string
            (ironclad:pbkdf2-hash-password (ironclad:ascii-string-to-byte-array (to-base64 password))
@@ -108,6 +117,10 @@
           digest iterations))
 
 (defun simple-hash  (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+  "Simple hashing of PASSWORD using SALT using the given DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash and salt as a string, the digest and number of iterations."
   (setf salt (make-salt salt))
   (values (ironclad:byte-array-to-hex-string
            (let ((hash (ironclad:make-digest digest)))
@@ -120,5 +133,6 @@
           digest iterations))
 
 (defun md5 (string)
+  "Turns an ASCII string into an MD5-hash string."
   (ironclad:byte-array-to-hex-string
    (ironclad:digest-sequence :md5 (ironclad:ascii-string-to-byte-array string))))
