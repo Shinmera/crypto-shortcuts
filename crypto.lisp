@@ -16,7 +16,8 @@
    #:pbkdf2-key
    #:pbkdf2-hash
    #:simple-hash
-   #:md5))
+   #:md5
+   #:sha512))
 (in-package #:org.tymoonnext.radiance.lib.crypto-shortcuts)
 
 (defun byte-array-to-ascii-string (array)
@@ -52,11 +53,11 @@
 
 (defgeneric encrypt (text key &key mode IV)
   (:documentation "Encrypt the text with the provided key, using the specified AES mode.
-Depending on the mode, the key should most likely be of length 8, 16 or 32."))
+Depending on the mode, the key should most likely be of length 16, 32 or 64"))
 
 (defgeneric decrypt (text key &key mode IV)
   (:documentation "Decrypt the text with the provided key, using the specified AES mode.
-Depending on the mode, the key should most likely be of length 8, 16 or 32."))
+Depending on the mode, the key should most likely be of length 16, 32 or 64."))
 
 (defmethod get-cipher ((key string) &key mode IV)
   (get-cipher (ironclad:ascii-string-to-byte-array key) :mode mode :IV IV))
@@ -64,23 +65,23 @@ Depending on the mode, the key should most likely be of length 8, 16 or 32."))
 (defmethod get-cipher ((key vector) &key mode IV)
   (ironclad:make-cipher 'ironclad:aes :key key :mode mode :initialization-vector IV))
 
-(defmethod encrypt ((text string) key &key (mode 'ironclad:ecb) (IV (ironclad:make-random-salt)))
+(defmethod encrypt ((text string) key &key (mode :ecb) (IV (ironclad:make-random-salt)))
   (encrypt (flexi-streams:string-to-octets text :external-format :utf-8) key :mode mode :IV IV))
 
-(defmethod encrypt ((text vector) key &key (mode 'ironclad:ecb) (IV (ironclad:make-random-salt)))
+(defmethod encrypt ((text vector) key &key (mode :ecb) (IV (ironclad:make-random-salt)))
   (let ((text (ironclad:ascii-string-to-byte-array (base64:usb8-array-to-base64-string text)))
         (cipher (get-cipher key :mode mode :IV IV)))
     (ironclad:encrypt-in-place cipher text)
     (values (to-base64 text)
             key mode IV)))
 
-(defmethod decrypt ((text string) key &key (mode 'ironclad:ecb) IV)
+(defmethod decrypt ((text string) key &key (mode :ecb) IV)
   (decrypt (base64:base64-string-to-usb8-array text) key :mode mode :IV IV))
 
-(defmethod decrypt ((text integer) key &key (mode 'ironclad:ecb) IV)
+(defmethod decrypt ((text integer) key &key (mode :ecb) IV)
   (decrypt (ironclad:integer-to-octets text) key :mode mode :IV IV))
 
-(defmethod decrypt ((text vector) key &key (mode 'ironclad:ecb) IV)
+(defmethod decrypt ((text vector) key &key (mode :ecb) IV)
   (let ((cipher (get-cipher key :mode mode :IV IV)))
     (ironclad:decrypt-in-place cipher text)
     (values (from-base64 text) key mode IV)))
@@ -93,7 +94,7 @@ Depending on the mode, the key should most likely be of length 8, 16 or 32."))
 (defmethod make-salt ((salt string)) (ironclad:ascii-string-to-byte-array salt))
 (defmethod make-salt ((salt vector)) salt)
 
-(defun pbkdf2-key (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+(defun pbkdf2-key (password salt &key (digest :sha512) (iterations 1000))
   "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
 The password can be an arbitrary string and will first be turned into a BASE-64 string.
 
@@ -104,7 +105,7 @@ Four values are returned: The hash as a byte-array, the salt as a string, the di
           (byte-array-to-ascii-string salt)
           digest iterations))
 
-(defun pbkdf2-hash (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+(defun pbkdf2-hash (password salt &key (digest :sha512) (iterations 1000))
   "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
 The password can be an arbitrary string and will first be turned into a BASE-64 string.
 
@@ -116,7 +117,7 @@ Four values are returned: The hash and salt as a string, the digest and number o
           (byte-array-to-ascii-string salt)
           digest iterations))
 
-(defun simple-hash  (password salt &key (digest 'ironclad:sha512) (iterations 1000))
+(defun simple-hash  (password salt &key (digest :sha512) (iterations 1000))
   "Simple hashing of PASSWORD using SALT using the given DIGEST and repeating the hashing ITERATIONS times.
 The password can be an arbitrary string and will first be turned into a BASE-64 string.
 
@@ -136,3 +137,8 @@ Four values are returned: The hash and salt as a string, the digest and number o
   "Turns an ASCII string into an MD5-hash string."
   (ironclad:byte-array-to-hex-string
    (ironclad:digest-sequence :md5 (ironclad:ascii-string-to-byte-array string))))
+
+(defun sha512 (string)
+  "Turns an ASCII string into a SHA512-hash string."
+  (ironclad:byte-array-to-hex-string
+   (ironclad:digest-sequence :sha512 (ironclad:ascii-string-to-byte-array string))))
