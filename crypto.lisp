@@ -16,7 +16,8 @@
    #:make-salt
    #:pbkdf2-key
    #:pbkdf2-hash
-   #:simple-hash))
+   #:simple-hash
+   #:md5))
 (in-package #:org.tymoonnext.radiance.lib.crypto-shortcuts)
 
 (defun byte-array-to-ascii-string (array)
@@ -117,3 +118,7 @@
              (ironclad:produce-digest hash)))
           (byte-array-to-ascii-string salt)
           digest iterations))
+
+(defun md5 (string)
+  (ironclad:byte-array-to-hex-string
+   (ironclad:digest-sequence :md5 (ironclad:ascii-string-to-byte-array string))))
