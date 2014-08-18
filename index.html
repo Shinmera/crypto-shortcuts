@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>CRYPTO-SHORTCUTS</title>
+    <style type="text/css">
+      code a{text-decoration:none;}
+      h1{display:inline-block;font-size: 28pt;margin-bottom:0;}
+      code{font-family: Consolas, Inconsolata, monospace;}
+      h4{display: inline-block;margin:0;padding:0;}
+      ul{list-style: none;}
+      .package li{margin-bottom: 20px;}
+      .package pre{margin: 0 0 0 10px; white-space: pre-wrap;}
+      .package .nicknames{font-size: 12pt; font-weight: normal;}
+      table{margin: 20px;}
+      td{padding-bottom: 10px;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>crypto-shortcuts</h1>
+      <span/>
+      <p>Shorthand functions for common cryptography tasks.</p>
+    </header>
+    <div id="content">
+      <article>
+        <documentate>
+          <span><h2>About Crypto Shortcuts</h2>
+
+<p>This is a small wrapper library around ironclad and cl-base64 to provide quick and easy access to frequently used cryptography functionality like hashing, encoding and encrypting.</p>
+
+<h2>How To</h2>
+
+<pre><code>(<a href="#CRYPTO-SHORTCUTS:FROM-BASE64">cryptos:from-base64</a> (<a href="#CRYPTO-SHORTCUTS:TO-BASE64">cryptos:to-base64</a> &quot;ＣＬがすごいです。&quot;))
+
+(<a href="#CRYPTO-SHORTCUTS:DECRYPT">cryptos:decrypt</a> (<a href="#CRYPTO-SHORTCUTS:ENCRYPT">cryptos:encrypt</a> &quot;Lispy Secrets, oooOOooo&quot; &quot;1234567890123456&quot;) &quot;1234567890123456&quot;)
+
+(<a href="#CRYPTO-SHORTCUTS:PBKDF2-HASH">cryptos:pbkdf2-hash</a> &quot;My passwords have never been this secure, whoa nelly!&quot; &quot;salty snacks&quot;)
+
+(<a href="#CRYPTO-SHORTCUTS:SIMPLE-HASH">cryptos:simple-hash</a> &quot;I guess not everyone can afford PBKDF2.&quot; &quot;crisps&quot;)
+
+(<a href="#CRYPTO-SHORTCUTS:MD5">cryptos:md5</a> &quot;MD5 hashes are weak, but still sometimes useful.&quot;)
+
+(<a href="#CRYPTO-SHORTCUTS:SHA512">cryptos:sha512</a> &quot;If you don't need hash iterations or salts like simple-hash provides, this will do too.&quot;)</code></pre>
+</span>
+        </documentate>
+      </article>
+      <article>
+        <h2>Copyright</h2>
+        <span>crypto-shortcuts</span> is licensed under the <span><a href="https://tldrlegal.com/search?q=Artistic">Artistic</a></span> license and ©<span>2014</span> <span>Nicolas Hafner &lt;shinmera@tymoon.eu&gt;</span>. This library can be obtained on <a href="https://github.com/Shinmera/crypto-shortcuts">https://github.com/Shinmera/crypto-shortcuts</a>.
+      </article>
+      <article>
+        <h2>Package Index</h2>
+        <ul><li class="package">
+            <h3>
+              <a name="CRYPTO-SHORTCUTS" href="#CRYPTO-SHORTCUTS">CRYPTO-SHORTCUTS</a>
+              <span class="nicknames">(CRYPTOS ORG.TYMOONNEXT.RADIANCE.LIB.CRYPTO-SHORTCUTS)</span>
+            </h3>
+            <ul><li>
+                <a name="CRYPTO-SHORTCUTS:MD5"/>
+                <article>
+                  <header>
+                    <span>FUNCTION</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:MD5">MD5</a></h4>
+                      <span></span>
+                      <span>(STRING)</span>
+                    </code>
+                  </header>
+                  <pre>Turns an ASCII string into an MD5-hash string.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:PBKDF2-HASH"/>
+                <article>
+                  <header>
+                    <span>FUNCTION</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:PBKDF2-HASH">PBKDF2-HASH</a></h4>
+                      <span></span>
+                      <span>(PASSWORD SALT &amp;KEY (DIGEST SHA512) (ITERATIONS 1000))</span>
+                    </code>
+                  </header>
+                  <pre>Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash and salt as a string, the digest and number of iterations.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:PBKDF2-KEY"/>
+                <article>
+                  <header>
+                    <span>FUNCTION</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:PBKDF2-KEY">PBKDF2-KEY</a></h4>
+                      <span></span>
+                      <span>(PASSWORD SALT &amp;KEY (DIGEST SHA512) (ITERATIONS 1000))</span>
+                    </code>
+                  </header>
+                  <pre>Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash as a byte-array, the salt as a string, the digest and number of iterations.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:SHA512"/>
+                <article>
+                  <header>
+                    <span>FUNCTION</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:SHA512">SHA512</a></h4>
+                      <span></span>
+                      <span>(STRING)</span>
+                    </code>
+                  </header>
+                  <pre>Turns an ASCII string into a SHA512-hash string.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:SIMPLE-HASH"/>
+                <article>
+                  <header>
+                    <span>FUNCTION</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:SIMPLE-HASH">SIMPLE-HASH</a></h4>
+                      <span></span>
+                      <span>(PASSWORD SALT &amp;KEY (DIGEST SHA512) (ITERATIONS 1000))</span>
+                    </code>
+                  </header>
+                  <pre>Simple hashing of PASSWORD using SALT using the given DIGEST and repeating the hashing ITERATIONS times.
+The password can be an arbitrary string and will first be turned into a BASE-64 string.
+
+Four values are returned: The hash and salt as a string, the digest and number of iterations.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:DECRYPT"/>
+                <article>
+                  <header>
+                    <span>GENERIC</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:DECRYPT">DECRYPT</a></h4>
+                      <span></span>
+                      <span>(TEXT KEY &amp;KEY MODE IV (MODE ECB))</span>
+                    </code>
+                  </header>
+                  <pre>Decrypt the text with the provided key, using the specified AES mode.
+Depending on the mode, the key should most likely be of length 16, 32 or 64.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:ENCRYPT"/>
+                <article>
+                  <header>
+                    <span>GENERIC</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:ENCRYPT">ENCRYPT</a></h4>
+                      <span></span>
+                      <span>(TEXT KEY &amp;KEY MODE IV (IV (MAKE-RANDOM-SALT)) (MODE ECB))</span>
+                    </code>
+                  </header>
+                  <pre>Encrypt the text with the provided key, using the specified AES mode.
+Depending on the mode, the key should most likely be of length 16, 32 or 64</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:FROM-BASE64"/>
+                <article>
+                  <header>
+                    <span>GENERIC</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:FROM-BASE64">FROM-BASE64</a></h4>
+                      <span></span>
+                      <span>(SEQUENCE)</span>
+                    </code>
+                  </header>
+                  <pre>Turns a base64-encoded sequence into an UTF-8 string.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:MAKE-SALT"/>
+                <article>
+                  <header>
+                    <span>GENERIC</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:MAKE-SALT">MAKE-SALT</a></h4>
+                      <span></span>
+                      <span>(SALT)</span>
+                    </code>
+                  </header>
+                  <pre>Create a salt from the given object.</pre>
+                </article>
+              </li><li>
+                <a name="CRYPTO-SHORTCUTS:TO-BASE64"/>
+                <article>
+                  <header>
+                    <span>GENERIC</span>
+                    <code>
+                      <h4><a href="#CRYPTO-SHORTCUTS:TO-BASE64">TO-BASE64</a></h4>
+                      <span></span>
+                      <span>(SEQUENCE)</span>
+                    </code>
+                  </header>
+                  <pre>Turns a sequence into a base64-encoded string using UTF-8 encoding.</pre>
+                </article>
+              </li></ul></li></ul></article></div></body></html>
