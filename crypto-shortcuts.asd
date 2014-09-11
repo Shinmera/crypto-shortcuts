@@ -12,6 +12,7 @@
   :maintainer "Nicolas Hafner <shinmera@tymoon.eu>"
   :description "Shorthand functions for common cryptography tasks."
   :homepage "https://github.com/Shinmera/crypto-shortcuts"
+  :version "1.1.0"
   :serial T
   :components ((:file "crypto"))
   :depends-on (:ironclad :cl-base64 :flexi-streams))
