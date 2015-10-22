@@ -40,6 +40,8 @@
    #:from-hex
    #:to-base64
    #:from-base64
+   #:to
+   #:code
    ;; hashing.lisp
    #:make-salt
    #:pbkdf2-key
