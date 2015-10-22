@@ -15,6 +15,14 @@
 
 ;; crypto.lisp
 (setdocs
+  (normalize-key
+   "Normalizes the KEY to an octet-vector using METHOD.
+By default, method can be one of:
+
+:HASH  -- Hash it by sha256
+:FIT   -- Truncate or pad it out before turning into octets.
+NIL    -- Just turn it into an octet-vector.")
+  
   (get-cipher
    "Return the corresponding cipher with KEY using MODE and potentially the initialization-vector IV.")
 
@@ -27,7 +35,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: Encrypted&encoded text, key, cipher, mode, and IV.
 
-See TO")
+See TO
+See NORMALIZE-KEY")
   
   (decrypt
    "Decrypt TEXT with KEY using the provided CIPHER/MODE/IV.
@@ -38,7 +47,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: Decrypted text, key, cipher, mode, and IV.
 
-See CODE")
+See CODE
+See NORMALIZE-KEY")
 
   (hmac
    "Generate an HMAC digest of TEXT using KEY and the provided DIGEST method.
@@ -58,7 +68,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: digest, key, cipher, mode, and IV.
 
-See To"))
+See TO
+See NORMALIZE-KEY"))
 
 ;; digests.lisp
 ;; In-source.

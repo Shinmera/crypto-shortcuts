@@ -10,6 +10,7 @@
   (:use #:cl)
   (:export
    ;; crypto.lisp
+   #:normalize-key
    #:get-cipher
    #:encrypt
    #:decrypt
