@@ -420,7 +420,7 @@ See TO.</pre>
                       <code>
                         <h4><a href="#CRYPTO-SHORTCUTS:CMAC" class="name">CMAC</a></h4>
                         <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO)</span>
+                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY)</span>
                       </code>
                     </header>
                     <pre class="docstring">Generate a CMAC digest of TEXT using KEY and the provided CIPHER/MODE/IV.
@@ -430,7 +430,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: digest, key, cipher, mode, and IV.
 
-See To</pre>
+See TO
+See NORMALIZE-KEY</pre>
                   </article>
                 </li><li>
                   <a name="CRYPTO-SHORTCUTS:DECRYPT"/>
@@ -440,7 +441,7 @@ See To</pre>
                       <code>
                         <h4><a href="#CRYPTO-SHORTCUTS:DECRYPT" class="name">DECRYPT</a></h4>
                         <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV FROM)</span>
+                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV FROM NORMALIZE-KEY)</span>
                       </code>
                     </header>
                     <pre class="docstring">Decrypt TEXT with KEY using the provided CIPHER/MODE/IV.
@@ -451,7 +452,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: Decrypted text, key, cipher, mode, and IV.
 
-See CODE</pre>
+See CODE
+See NORMALIZE-KEY</pre>
                   </article>
                 </li><li>
                   <a name="CRYPTO-SHORTCUTS:ENCRYPT"/>
@@ -461,7 +463,7 @@ See CODE</pre>
                       <code>
                         <h4><a href="#CRYPTO-SHORTCUTS:ENCRYPT" class="name">ENCRYPT</a></h4>
                         <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO)</span>
+                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY)</span>
                       </code>
                     </header>
                     <pre class="docstring">Encrypt TEXT with KEY using the provided CIPHER/MODE/IV.
@@ -472,7 +474,8 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 
 Four values are returned: Encrypted&amp;encoded text, key, cipher, mode, and IV.
 
-See TO</pre>
+See TO
+See NORMALIZE-KEY</pre>
                   </article>
                 </li><li>
                   <a name="CRYPTO-SHORTCUTS:FROM-BASE64"/>
@@ -553,6 +556,24 @@ STRING  -- Use this string as an octet-vector
 VECTOR  -- Use this vector directly
 
 See TO-OCTETS</pre>
+                  </article>
+                </li><li>
+                  <a name="CRYPTO-SHORTCUTS:NORMALIZE-KEY"/>
+                  <article>
+                    <header class="generic">
+                      <span class="type">generic</span>
+                      <code>
+                        <h4><a href="#CRYPTO-SHORTCUTS:NORMALIZE-KEY" class="name">NORMALIZE-KEY</a></h4>
+                        <span class="qualifiers"></span>
+                        <span class="arguments">(METHOD KEY)</span>
+                      </code>
+                    </header>
+                    <pre class="docstring">Normalizes the KEY to an octet-vector using METHOD.
+By default, method can be one of:
+
+:HASH  -- Hash it by sha256
+:FIT   -- Truncate or pad it out before turning into octets.
+NIL    -- Just turn it into an octet-vector.</pre>
                   </article>
                 </li><li>
                   <a name="CRYPTO-SHORTCUTS:TO-BASE64"/>
