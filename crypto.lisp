@@ -4,141 +4,55 @@
   Author: Nicolas Hafner <shinmera@tymoon.eu>
 |#
 
-(defpackage #:crypto-shortcuts
-  (:nicknames #:org.tymoonnext.radiance.lib.crypto-shortcuts #:cryptos)
-  (:use #:cl)
-  (:export
-   #:to-base64
-   #:from-base64
-   #:encrypt
-   #:decrypt
-   #:make-salt
-   #:pbkdf2-key
-   #:pbkdf2-hash
-   #:simple-hash
-   #:md5
-   #:sha512))
-(in-package #:org.tymoonnext.radiance.lib.crypto-shortcuts)
+(in-package #:org.shirakumo.crypto-shortcuts)
 
-(defun byte-array-to-ascii-string (array)
-  (coerce (mapcar #'code-char (coerce array 'list)) 'string))
+(defgeneric get-cipher (key &key cipher mode IV)
+  (:method ((key string) &rest args &key cipher mode IV)
+    (declare (ignore cipher mode IV))
+    (apply #'get-cipher (to-octets key) args))
+  (:method ((key vector) &key (cipher :aes) mode IV)
+    (ironclad:make-cipher cipher :key key :mode mode :initialization-vector IV)))
 
-(defgeneric to-base64 (sequence)
-  (:documentation "Turns a sequence into a base64-encoded string using UTF-8 encoding."))
+(defgeneric encrypt (text key &key cipher mode IV to)
+  (:method ((text string) key &rest args &key cipher mode IV to)
+    (declare (ignore cipher mode iv to))
+    (apply #'encrypt (to-octets text) key args))
+  (:method ((text vector) key &key (cipher :aes) (mode :ecb) (IV (ironclad:make-random-salt)) (to :base64))
+    (let ((text (to-octets (to-base64 text)))
+          (cipher (get-cipher key :cipher cipher :mode mode :IV IV)))
+      (ironclad:encrypt-in-place cipher text)
+      (values (to to text) key cipher mode IV))))
 
-(defgeneric from-base64 (sequence)
-  (:documentation "Turns a base64-encoded sequence into an UTF-8 string."))
+(defgeneric decrypt (text key &key cipher mode IV from)
+  (:method ((text string) key &rest args &key cipher mode IV (from :base64))
+    (declare (ignore cipher mode IV))
+    (apply #'decrypt (code from :octets text) key args))
+  (:method ((text vector) key &key (cipher :aes) (mode :ecb) IV from)
+    (declare (ignore from))
+    (let ((cipher (get-cipher key :cipher cipher :mode mode :IV IV)))
+      (ironclad:decrypt-in-place cipher text)
+      (values (from-base64 text) key cipher mode IV))))
 
-(defmethod to-base64 ((integer integer))
-  (base64:integer-to-base64-string integer))
+(defgeneric hmac (text key &key digest to)
+  (:method ((text string) key &rest args &key digest to)
+    (declare (ignore digest to))
+    (apply #'hmac (to-octets text) key args))
+  (:method (text (key string) &rest args &key digest to)
+    (declare (ignore digest to))
+    (apply #'hmac text (to-octets key) args))
+  (:method ((text vector) (key vector) &key (digest :sha512) (to :base64))
+    (let ((hmac (ironclad:make-hmac key digest)))
+      (ironclad:update-hmac hmac text)
+      (values (to to (ironclad:hmac-digest hmac)) key digest))))
 
-(defmethod to-base64 ((array array))
-  (base64:usb8-array-to-base64-string array))
-
-(defmethod to-base64 ((string string))
-  (to-base64
-   (flexi-streams:string-to-octets string :external-format :utf-8)))
-
-(defmethod from-base64 ((string string))
-  (flexi-streams:octets-to-string
-   (base64:base64-string-to-usb8-array string)
-   :external-format :utf-8))
-
-(defmethod from-base64 ((vector vector))
-  (from-base64
-   (byte-array-to-ascii-string vector)))
-
-(defgeneric get-cipher (key &key mode IV)
-  (:documentation "Return the corresponding cipher."))
-
-(defgeneric encrypt (text key &key mode IV)
-  (:documentation "Encrypt the text with the provided key, using the specified AES mode.
-Depending on the mode, the key should most likely be of length 16, 32 or 64"))
-
-(defgeneric decrypt (text key &key mode IV)
-  (:documentation "Decrypt the text with the provided key, using the specified AES mode.
-Depending on the mode, the key should most likely be of length 16, 32 or 64."))
-
-(defmethod get-cipher ((key string) &key mode IV)
-  (get-cipher (ironclad:ascii-string-to-byte-array key) :mode mode :IV IV))
-
-(defmethod get-cipher ((key vector) &key mode IV)
-  (ironclad:make-cipher 'ironclad:aes :key key :mode mode :initialization-vector IV))
-
-(defmethod encrypt ((text string) key &key (mode :ecb) (IV (ironclad:make-random-salt)))
-  (encrypt (flexi-streams:string-to-octets text :external-format :utf-8) key :mode mode :IV IV))
-
-(defmethod encrypt ((text vector) key &key (mode :ecb) (IV (ironclad:make-random-salt)))
-  (let ((text (ironclad:ascii-string-to-byte-array (base64:usb8-array-to-base64-string text)))
-        (cipher (get-cipher key :mode mode :IV IV)))
-    (ironclad:encrypt-in-place cipher text)
-    (values (to-base64 text)
-            key mode IV)))
-
-(defmethod decrypt ((text string) key &key (mode :ecb) IV)
-  (decrypt (base64:base64-string-to-usb8-array text) key :mode mode :IV IV))
-
-(defmethod decrypt ((text integer) key &key (mode :ecb) IV)
-  (decrypt (ironclad:integer-to-octets text) key :mode mode :IV IV))
-
-(defmethod decrypt ((text vector) key &key (mode :ecb) IV)
-  (let ((cipher (get-cipher key :mode mode :IV IV)))
-    (ironclad:decrypt-in-place cipher text)
-    (values (from-base64 text) key mode IV)))
-
-(defgeneric make-salt (salt)
-  (:documentation "Create a salt from the given object."))
-
-(defmethod make-salt ((salt T)) (ironclad:make-random-salt))
-(defmethod make-salt ((salt integer)) (ironclad:make-random-salt salt))
-(defmethod make-salt ((salt string)) (ironclad:ascii-string-to-byte-array salt))
-(defmethod make-salt ((salt vector)) salt)
-
-(defun pbkdf2-key (password salt &key (digest :sha512) (iterations 1000))
-  "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
-The password can be an arbitrary string and will first be turned into a BASE-64 string.
-
-Four values are returned: The hash as a byte-array, the salt as a string, the digest and number of iterations."
-  (setf salt (make-salt salt))
-  (values (ironclad:pbkdf2-hash-password (ironclad:ascii-string-to-byte-array (to-base64 password))
-                                         :salt salt :digest digest :iterations iterations)
-          (byte-array-to-ascii-string salt)
-          digest iterations))
-
-(defun pbkdf2-hash (password salt &key (digest :sha512) (iterations 1000))
-  "Computes a PBKDF2 hash of the given PASSWORD using SALT, the DIGEST and repeating the hashing ITERATIONS times.
-The password can be an arbitrary string and will first be turned into a BASE-64 string.
-
-Four values are returned: The hash and salt as a string, the digest and number of iterations."
-  (setf salt (make-salt salt))
-  (values (ironclad:byte-array-to-hex-string
-           (ironclad:pbkdf2-hash-password (ironclad:ascii-string-to-byte-array (to-base64 password))
-                                          :salt salt :digest digest :iterations iterations))
-          (byte-array-to-ascii-string salt)
-          digest iterations))
-
-(defun simple-hash  (password salt &key (digest :sha512) (iterations 1000))
-  "Simple hashing of PASSWORD using SALT using the given DIGEST and repeating the hashing ITERATIONS times.
-The password can be an arbitrary string and will first be turned into a BASE-64 string.
-
-Four values are returned: The hash and salt as a string, the digest and number of iterations."
-  (setf salt (make-salt salt))
-  (values (ironclad:byte-array-to-hex-string
-           (let ((hash (ironclad:make-digest digest)))
-             (ironclad:update-digest hash salt)
-             (ironclad:update-digest hash (ironclad:ascii-string-to-byte-array (to-base64 password)))
-             (dotimes (x iterations)
-               (ironclad:update-digest hash (ironclad:produce-digest hash)))
-             (ironclad:produce-digest hash)))
-          (byte-array-to-ascii-string salt)
-          digest iterations))
-
-(defun md5 (string)
-  "Turns an ASCII string into an MD5-hash string."
-  (ironclad:byte-array-to-hex-string
-   (ironclad:digest-sequence :md5 (ironclad:ascii-string-to-byte-array string))))
-
-(defun sha512 (string)
-  "Turns an ASCII string into a SHA512-hash string."
-  (ironclad:byte-array-to-hex-string
-   (ironclad:digest-sequence :sha512 (ironclad:ascii-string-to-byte-array string))))
+(defgeneric cmac (text key &key cipher mode iv to)
+  (:method ((text string) key &rest args &key cipher mode iv to)
+    (declare (ignore cipher mode iv to))
+    (apply #'cmac (to-octets text) key args))
+  (:method (text (key string) &rest args &key cipher mode iv to)
+    (declare (ignore cipher mode iv to))
+    (apply #'cmac text (to-octets key) args))
+  (:method ((text vector) (key vector) &key (cipher :aes) (mode :ctr) iv (to :base64))
+    (let ((cmac (ironclad:make-cmac key (get-cipher key :cipher cipher :mode mode :iv iv))))
+      (ironclad:update-cmac cmac text)
+      (values (to to (ironclad:cmac-digest cmac)) key cipher mode iv))))
