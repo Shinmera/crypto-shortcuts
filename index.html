@@ -20,12 +20,12 @@
   <body>
     <header>
       <h1>crypto-shortcuts</h1>
-      <span class="version">2.0.0</span>
-      <p class="description">Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding.</p>
+      <span>2.0.0</span>
+      <p>Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding.</p>
     </header>
     <div id="content">
       <article>
-        
+        <c:documentate>
           <span><h2>About Crypto Shortcuts</h2>
 
 <p>This is a small wrapper library around ironclad and cl-base64 to provide quick and easy access to frequently used cryptography functionality like hashing, encoding and encrypting.</p>
@@ -44,7 +44,7 @@
 
 (<a href="#CRYPTO-SHORTCUTS:SHA512">cryptos:sha512</a> &quot;If you don't need hash iterations or salts like simple-hash provides, this will do too.&quot;)</code></pre>
 </span>
-        
+        </c:documentate>
       </article>
       <article>
         
@@ -434,6 +434,24 @@ See TO
 See NORMALIZE-KEY</pre>
                   </article>
                 </li><li>
+                  <a name="CRYPTO-SHORTCUTS:CODE"/>
+                  <article>
+                    <header class="generic">
+                      <span class="type">generic</span>
+                      <code>
+                        <h4><a href="#CRYPTO-SHORTCUTS:CODE" class="name">CODE</a></h4>
+                        <span class="qualifiers"></span>
+                        <span class="arguments">(FROM TO VECTOR)</span>
+                      </code>
+                    </header>
+                    <pre class="docstring">Convenience function to de/encode in one pass.
+By default, FROM and TO can both be one of:
+
+:OCTETS :STRING :HEX :BASE64
+
+If FROM is NIL, then TO is called with the remaining arguments.</pre>
+                  </article>
+                </li><li>
                   <a name="CRYPTO-SHORTCUTS:DECRYPT"/>
                   <article>
                     <header class="generic">
@@ -574,6 +592,26 @@ By default, method can be one of:
 :HASH  -- Hash it by sha256
 :FIT   -- Truncate or pad it out before turning into octets.
 NIL    -- Just turn it into an octet-vector.</pre>
+                  </article>
+                </li><li>
+                  <a name="CRYPTO-SHORTCUTS:TO"/>
+                  <article>
+                    <header class="generic">
+                      <span class="type">generic</span>
+                      <code>
+                        <h4><a href="#CRYPTO-SHORTCUTS:TO" class="name">TO</a></h4>
+                        <span class="qualifiers"></span>
+                        <span class="arguments">(THING VECTOR)</span>
+                      </code>
+                    </header>
+                    <pre class="docstring">Convenience function to call the various encoders.
+By default, THING can be one of:
+
+NIL      -- Returns VECTOR
+:OCTETS  -- See TO-OCTETS
+:STRING  -- See TO-STRING
+:HEX     -- See TO-HEX
+:BASE64  -- See TO-BASE64</pre>
                   </article>
                 </li><li>
                   <a name="CRYPTO-SHORTCUTS:TO-BASE64"/>
