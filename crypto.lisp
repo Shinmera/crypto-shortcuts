@@ -67,7 +67,7 @@
   (:method (text (key string) &rest args &key cipher mode iv to normalize-key)
     (declare (ignore cipher mode iv to normalize-key))
     (apply #'cmac text (to-octets key) args))
-  (:method ((text vector) (key vector) &key (cipher :aes) (mode :ctr) iv (to :base64) normalize-key)
+  (:method ((text vector) (key vector) &key (cipher :aes) (mode :ecb) iv (to :base64) normalize-key)
     (let ((key (normalize-key normalize-key key))
           (cmac (ironclad:make-cmac key (get-cipher key :cipher cipher :mode mode :iv iv))))
       (ironclad:update-cmac cmac text)
