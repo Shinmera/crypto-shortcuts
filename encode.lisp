@@ -7,6 +7,8 @@
 (in-package #:org.shirakumo.crypto-shortcuts)
 
 (defgeneric to-octets (string &optional format)
+  (:method ((symbol symbol) &optional (format :utf-8))
+    (to-octets (string symbol) format))
   (:method ((string string) &optional (format :utf-8))
     (flexi-streams:string-to-octets string :external-format format))
   (:method ((vector vector) &optional format)
@@ -19,6 +21,8 @@
     (declare (ignore format)) string))
 
 (defgeneric to-hex (vector)
+  (:method ((symbol symbol))
+    (to-hex (string symbol)))
   (:method ((string string))
     (to-hex (to-octets string)))
   (:method ((vector vector))
@@ -34,7 +38,9 @@
   (:method ((vector vector))
     (base64:usb8-array-to-base64-string vector))
   (:method ((string string))
-    (to-base64 (to-octets string))))
+    (to-base64 (to-octets string)))
+  (:method ((symbol symbol))
+    (to-base64 (string symbol))))
 
 (defgeneric from-base64 (vector &optional to)
   (:method ((string string) &optional (to :string))
