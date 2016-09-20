@@ -1,38 +1,76 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8"/>
-    <title>CRYPTO-SHORTCUTS</title>
-    <style type="text/css">
-      html{font-family: serif;}
-      code a{text-decoration: none;}
-      h1{display: inline-block; margin-bottom: 0;}
-      code{font-family: monospace;}
-      h4{display: inline-block; margin: 0; padding: 0;}
-      #symbol-index ul{list-style: none;}
-      .package li{margin-bottom: 20px;}
-      .package pre{margin: 0 0 0 10px; white-space: pre-wrap;}
-      .package .nicknames{font-weight: normal;}
-      table{margin: 20px;}
-      td{padding-bottom: 10px;}
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>crypto-shortcuts</h1>
-      <span>2.0.0</span>
-      <p>Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding.</p>
-    </header>
-    <div id="content">
-      <article>
-        <c:documentate>
-          <span><h2>About Crypto Shortcuts</h2>
+<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta charset="utf-8"/> <title>Crypto-Shortcuts</title> <meta name="viewport" content="width=device-width"/> <meta name="description" content="Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding."/> <meta name="author" content="Nicolas Hafner &lt;shinmera@tymoon.eu&gt;"/> <style type="text/css"> body{
+          max-width: 1024px;
+          margin: 0 auto 0 auto;
+          font-family: sans-serif;
+          color: #333333;
+          font-size: 14pt;
+          padding: 5px;
+      }
 
-<p>This is a small wrapper library around ironclad and cl-base64 to provide quick and easy access to frequently used cryptography functionality like hashing, encoding and encrypting.</p>
+      body>header{
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          max-width: 100%;
+      }
 
-<h2>How To</h2>
+      img{
+          max-width: 100%;
+          max-height: 100%;
+      }
 
-<pre><code>(<a href="#CRYPTO-SHORTCUTS:FROM-BASE64">cryptos:from-base64</a> (<a href="#CRYPTO-SHORTCUTS:TO-BASE64">cryptos:to-base64</a> &quot;ＣＬがすごいです。&quot;))
+      code{
+          font-family: Consolas, Inconsolata, monospace;
+      }
+
+      a{
+          text-decoration: none;
+          color: #0055AA;
+      }
+
+      #documentation{
+          text-align: justify;
+      }
+
+      #documentation pre{
+          margin-left: 20px;
+      }
+
+      #symbol-index>ul{
+          list-style: none;
+          padding: 0;
+      }
+      #symbol-index .package>ul{
+          list-style: none;
+          padding: 0 0 0 10px;
+      }
+      #symbol-index .package .nicknames{
+          font-weight: normal;
+      }
+      #symbol-index .package h4{
+          display: inline-block;
+          margin: 0;
+      }
+      #symbol-index .package article{
+          margin: 0 0 15px 0;
+      }
+      #symbol-index .package article header{
+          font-size: 1.2em;
+          font-weight: normal;
+      }
+      #symbol-index .package .name{
+          margin-right: 5px;
+      }
+      #symbol-index .package .docstring{
+          margin: 0 0 0 15px;
+          white-space: pre-wrap;
+          font-size: 12pt;
+      }
+
+      @media (max-width: 800px){
+          body{font-size: 12pt;}
+      } </style> </head> <body> <header> <h1>crypto-shortcuts</h1> <span class="version">2.0.0</span> <p class="description">Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding.</p> </header> <main> <article id="documentation">  <div><h2>About Crypto Shortcuts</h2> <p>This is a small wrapper library around ironclad and cl-base64 to provide quick and easy access to frequently used cryptography functionality like hashing, encoding and encrypting.</p> <h2>How To</h2> <pre><code>(<a href="#CRYPTO-SHORTCUTS:FROM-BASE64">cryptos:from-base64</a> (<a href="#CRYPTO-SHORTCUTS:TO-BASE64">cryptos:to-base64</a> &quot;ＣＬがすごいです。&quot;))
 
 (<a href="#CRYPTO-SHORTCUTS:DECRYPT">cryptos:decrypt</a> (<a href="#CRYPTO-SHORTCUTS:ENCRYPT">cryptos:encrypt</a> &quot;Lispy Secrets, oooOOooo&quot; &quot;1234567890123456&quot;) &quot;1234567890123456&quot;)
 
@@ -42,388 +80,107 @@
 
 (<a href="#CRYPTO-SHORTCUTS:MD5">cryptos:md5</a> &quot;MD5 hashes are weak, but still sometimes useful.&quot;)
 
-(<a href="#CRYPTO-SHORTCUTS:SHA512">cryptos:sha512</a> &quot;If you don't need hash iterations or salts like simple-hash provides, this will do too.&quot;)</code></pre>
-</span>
-        </c:documentate>
-      </article>
-      <article>
-        
-          <h2>Copyright</h2>
-          <span>crypto-shortcuts</span> is licensed under the <span><a href="https://tldrlegal.com/search?q=Artistic">Artistic</a></span> license.
-          
-            © <span>Nicolas Hafner &lt;shinmera@tymoon.eu&gt;</span>
-            .
-          
-          This library can be obtained on <a href="https://github.com/Shinmera/crypto-shortcuts">https://github.com/Shinmera/crypto-shortcuts</a>.
-        
-      </article>
-      
-        <article id="symbol-index">
-          <h2>Package Index</h2>
-          <ul><li class="package">
-              <h3>
-                <a name="CRYPTO-SHORTCUTS" href="#CRYPTO-SHORTCUTS">CRYPTO-SHORTCUTS</a>
-                <span class="nicknames">(CRYPTOS ORG.SHIRAKUMO.CRYPTO-SHORTCUTS)</span>
-              </h3>
-              <ul><li>
-                  <a name="CRYPTO-SHORTCUTS:ADLER32"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:ADLER32" class="name">ADLER32</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a ADLER32-hash.
+(<a href="#CRYPTO-SHORTCUTS:SHA512">cryptos:sha512</a> &quot;If you don't need hash iterations or salts like simple-hash provides, this will do too.&quot;)</code></pre> </div>  </article> <article id="copyright">  <h2>Copyright</h2> <span>crypto-shortcuts</span> is licensed under the <span><a href="https://tldrlegal.com/search?q=Artistic">Artistic</a></span> license.  © <span>Nicolas Hafner &lt;shinmera@tymoon.eu&gt;</span> .  This library can be obtained on <a href="https://github.com/Shinmera/crypto-shortcuts">https://github.com/Shinmera/crypto-shortcuts</a>.  </article>  <article id="symbol-index"> <h2>Package Index</h2> <ul><li class="package"> <h3> <a name="CRYPTO-SHORTCUTS" href="#CRYPTO-SHORTCUTS">CRYPTO-SHORTCUTS</a> <span class="nicknames">(CRYPTOS ORG.SHIRAKUMO.CRYPTO-SHORTCUTS)</span> </h3> <ul><li> <a name="CRYPTO-SHORTCUTS:ADLER32"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:ADLER32">ADLER32</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a ADLER32-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:CRC24"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:CRC24" class="name">CRC24</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a CRC24-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:CRC24"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:CRC24">CRC24</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a CRC24-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:CRC32"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:CRC32" class="name">CRC32</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a CRC32-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:CRC32"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:CRC32">CRC32</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a CRC32-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:MD2"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:MD2" class="name">MD2</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a MD2-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:MD2"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:MD2">MD2</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a MD2-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:MD4"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:MD4" class="name">MD4</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a MD4-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:MD4"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:MD4">MD4</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a MD4-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:MD5"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:MD5" class="name">MD5</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a MD5-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:MD5"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:MD5">MD5</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a MD5-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:PBKDF2-HASH"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:PBKDF2-HASH" class="name">PBKDF2-HASH</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(PASSWORD SALT &amp;KEY (DIGEST :SHA512) (ITERATIONS 1000) (TO :HEX))</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Hasehs PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:PBKDF2-HASH"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:PBKDF2-HASH">PBKDF2-HASH</a></code></h4> <code class="qualifiers"></code> <code class="arguments">PASSWORD SALT &amp;KEY (DIGEST :SHA512) (ITERATIONS 1000) (TO :HEX)</code><code>)</code>  </header> <pre class="docstring">Hasehs PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
 The returned hash is encoded using the method specified in TO.
 
 The default DIGEST is SHA512, the iteration is 1000, and TO is HEX.
 
 Four values are returned: hash, salt (as a string), digest, and iterations.
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:PBKDF2-KEY"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:PBKDF2-KEY" class="name">PBKDF2-KEY</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(PASSWORD SALT &amp;REST ARGS &amp;KEY DIGEST ITERATIONS)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Hashes PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:PBKDF2-KEY"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:PBKDF2-KEY">PBKDF2-KEY</a></code></h4> <code class="qualifiers"></code> <code class="arguments">PASSWORD SALT &amp;REST ARGS &amp;KEY DIGEST ITERATIONS</code><code>)</code>  </header> <pre class="docstring">Hashes PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
 
 The default DIGEST is SHA512, and the iteration is 1000.
 
 Four values are returned: hash as an octet-vector, salt (as a string), digest, and iterations.
 
-LEGACY. Use PBKDF2-HASH instead.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:RIPEMD-128"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:RIPEMD-128" class="name">RIPEMD-128</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a RIPEMD-128-hash.
+LEGACY. Use PBKDF2-HASH instead.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:RIPEMD-128"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:RIPEMD-128">RIPEMD-128</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a RIPEMD-128-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:RIPEMD-160"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:RIPEMD-160" class="name">RIPEMD-160</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a RIPEMD-160-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:RIPEMD-160"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:RIPEMD-160">RIPEMD-160</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a RIPEMD-160-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SHA1"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SHA1" class="name">SHA1</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a SHA1-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SHA1"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SHA1">SHA1</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a SHA1-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SHA224"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SHA224" class="name">SHA224</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a SHA224-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SHA224"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SHA224">SHA224</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a SHA224-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SHA256"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SHA256" class="name">SHA256</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a SHA256-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SHA256"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SHA256">SHA256</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a SHA256-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SHA384"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SHA384" class="name">SHA384</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a SHA384-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SHA384"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SHA384">SHA384</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a SHA384-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SHA512"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SHA512" class="name">SHA512</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a SHA512-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SHA512"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SHA512">SHA512</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a SHA512-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:SIMPLE-HASH"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:SIMPLE-HASH" class="name">SIMPLE-HASH</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(PASSWORD SALT &amp;KEY (DIGEST :SHA512) (ITERATIONS 1000) (TO :HEX))</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Hashes PASSWORD with SALT using DIGEST as the digest-method and repeats the hashing ITERATIONS times.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:SIMPLE-HASH"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:SIMPLE-HASH">SIMPLE-HASH</a></code></h4> <code class="qualifiers"></code> <code class="arguments">PASSWORD SALT &amp;KEY (DIGEST :SHA512) (ITERATIONS 1000) (TO :HEX)</code><code>)</code>  </header> <pre class="docstring">Hashes PASSWORD with SALT using DIGEST as the digest-method and repeats the hashing ITERATIONS times.
 The returned hash is encoded using the method specified in TO.
 
 The default DIGEST is SHA512, the iteration is 1000, and TO is HEX.
 
 Four values are returned: hash, salt (as a string), digest, and iterations.
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TIGER"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TIGER" class="name">TIGER</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a TIGER-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TIGER"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TIGER">TIGER</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a TIGER-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TREE-HASH"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TREE-HASH" class="name">TREE-HASH</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a TREE-HASH-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TREE-HASH"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TREE-HASH">TREE-HASH</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a TREE-HASH-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:WHIRLPOOL"/>
-                  <article>
-                    <header class="function">
-                      <span class="type">function</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:WHIRLPOOL" class="name">WHIRLPOOL</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;KEY (TO :HEX) ENCODE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn a string into a WHIRLPOOL-hash.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:WHIRLPOOL"> </a> <article> <header class="function"> <span class="type">function</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:WHIRLPOOL">WHIRLPOOL</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;KEY (TO :HEX) ENCODE</code><code>)</code>  </header> <pre class="docstring">Turn a string into a WHIRLPOOL-hash.
 
 TO is the returned representation
 ENCODE is the encoding before hashing
 
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:CMAC"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:CMAC" class="name">CMAC</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Generate a CMAC digest of TEXT using KEY and the provided CIPHER/MODE/IV.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:CMAC"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:CMAC">CMAC</a></code></h4> <code class="qualifiers"></code> <code class="arguments">TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY</code><code>)</code>  </header> <pre class="docstring">Generate a CMAC digest of TEXT using KEY and the provided CIPHER/MODE/IV.
 The returned digest is encoded by the format specified in TO.
 
 The default cipher is AES, default mode is ECB, and default TO is BASE64.
@@ -431,38 +188,12 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 Four values are returned: digest, key, cipher, mode, and IV.
 
 See TO
-See NORMALIZE-KEY</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:CODE"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:CODE" class="name">CODE</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(FROM TO VECTOR)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Convenience function to de/encode in one pass.
+See NORMALIZE-KEY</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:CODE"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:CODE">CODE</a></code></h4> <code class="qualifiers"></code> <code class="arguments">FROM TO VECTOR</code><code>)</code>  </header> <pre class="docstring">Convenience function to de/encode in one pass.
 By default, FROM and TO can both be one of:
 
 :OCTETS :STRING :HEX :BASE64
 
-If FROM is NIL, then TO is called with the remaining arguments.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:DECRYPT"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:DECRYPT" class="name">DECRYPT</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV FROM NORMALIZE-KEY)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Decrypt TEXT with KEY using the provided CIPHER/MODE/IV.
+If FROM is NIL, then TO is called with the remaining arguments.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:DECRYPT"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:DECRYPT">DECRYPT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">TEXT KEY &amp;KEY CIPHER MODE IV FROM NORMALIZE-KEY</code><code>)</code>  </header> <pre class="docstring">Decrypt TEXT with KEY using the provided CIPHER/MODE/IV.
 Depending on the mode, the key should be of length 16, 32, or 64.
 The passed text is decoded by the format specified in FROM.
 
@@ -471,20 +202,7 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 Four values are returned: Decrypted text, key, cipher, mode, and IV.
 
 See CODE
-See NORMALIZE-KEY</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:ENCRYPT"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:ENCRYPT" class="name">ENCRYPT</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Encrypt TEXT with KEY using the provided CIPHER/MODE/IV.
+See NORMALIZE-KEY</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:ENCRYPT"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:ENCRYPT">ENCRYPT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">TEXT KEY &amp;KEY CIPHER MODE IV TO NORMALIZE-KEY</code><code>)</code>  </header> <pre class="docstring">Encrypt TEXT with KEY using the provided CIPHER/MODE/IV.
 Depending on the mode, the key should be of length 16, 32, or 64.
 The returned encrypted vector is encoded by the format specified in TO.
 
@@ -493,182 +211,31 @@ The default cipher is AES, default mode is ECB, and default TO is BASE64.
 Four values are returned: Encrypted&amp;encoded text, key, cipher, mode, and IV.
 
 See TO
-See NORMALIZE-KEY</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:FROM-BASE64"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:FROM-BASE64" class="name">FROM-BASE64</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(VECTOR &amp;OPTIONAL TO)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turns a base64-encoded vector into a vector encoded by TO.
-See TO.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:FROM-HEX"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:FROM-HEX" class="name">FROM-HEX</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(HEX-STRING)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn the hex-string into an octet-vector.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:GET-CIPHER"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:GET-CIPHER" class="name">GET-CIPHER</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(KEY &amp;KEY CIPHER MODE IV)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Return the corresponding cipher with KEY using MODE and potentially the initialization-vector IV.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:HMAC"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:HMAC" class="name">HMAC</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(TEXT KEY &amp;KEY DIGEST TO)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Generate an HMAC digest of TEXT using KEY and the provided DIGEST method.
+See NORMALIZE-KEY</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:FROM-BASE64"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:FROM-BASE64">FROM-BASE64</a></code></h4> <code class="qualifiers"></code> <code class="arguments">VECTOR &amp;OPTIONAL TO</code><code>)</code>  </header> <pre class="docstring">Turns a base64-encoded vector into a vector encoded by TO.
+See TO.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:FROM-HEX"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:FROM-HEX">FROM-HEX</a></code></h4> <code class="qualifiers"></code> <code class="arguments">HEX-STRING</code><code>)</code>  </header> <pre class="docstring">Turn the hex-string into an octet-vector.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:GET-CIPHER"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:GET-CIPHER">GET-CIPHER</a></code></h4> <code class="qualifiers"></code> <code class="arguments">KEY &amp;KEY CIPHER MODE IV</code><code>)</code>  </header> <pre class="docstring">Return the corresponding cipher with KEY using MODE and potentially the initialization-vector IV.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:HMAC"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:HMAC">HMAC</a></code></h4> <code class="qualifiers"></code> <code class="arguments">TEXT KEY &amp;KEY DIGEST TO</code><code>)</code>  </header> <pre class="docstring">Generate an HMAC digest of TEXT using KEY and the provided DIGEST method.
 The returned digest is encoded by the format specified in TO.
 
 The default digest is SHA512, and default TO is BASE64.
 
 Three values are returned: digest, key, and digest-type.
 
-See TO</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:MAKE-SALT"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:MAKE-SALT" class="name">MAKE-SALT</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(SALT)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Create a salt from the given object.
+See TO</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:MAKE-SALT"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:MAKE-SALT">MAKE-SALT</a></code></h4> <code class="qualifiers"></code> <code class="arguments">SALT</code><code>)</code>  </header> <pre class="docstring">Create a salt from the given object.
 
 (eql T) -- A random salt
 INTEGER -- A salt of this size
 STRING  -- Use this string as an octet-vector
 VECTOR  -- Use this vector directly
 
-See TO-OCTETS</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:NORMALIZE-KEY"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:NORMALIZE-KEY" class="name">NORMALIZE-KEY</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(METHOD KEY)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Normalizes the KEY to an octet-vector using METHOD.
+See TO-OCTETS</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:NORMALIZE-KEY"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:NORMALIZE-KEY">NORMALIZE-KEY</a></code></h4> <code class="qualifiers"></code> <code class="arguments">METHOD KEY</code><code>)</code>  </header> <pre class="docstring">Normalizes the KEY to an octet-vector using METHOD.
 By default, method can be one of:
 
 :HASH  -- Hash it by sha256
 :FIT   -- Truncate or pad it out before turning into octets.
-NIL    -- Just turn it into an octet-vector.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TO"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TO" class="name">TO</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(THING VECTOR)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Convenience function to call the various encoders.
+NIL    -- Just turn it into an octet-vector.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TO"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TO">TO</a></code></h4> <code class="qualifiers"></code> <code class="arguments">THING VECTOR</code><code>)</code>  </header> <pre class="docstring">Convenience function to call the various encoders.
 By default, THING can be one of:
 
 NIL      -- Returns VECTOR
 :OCTETS  -- See TO-OCTETS
 :STRING  -- See TO-STRING
 :HEX     -- See TO-HEX
-:BASE64  -- See TO-BASE64</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TO-BASE64"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TO-BASE64" class="name">TO-BASE64</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(SEQUENCE)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turns a vector into a base64-encoded string.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TO-HEX"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TO-HEX" class="name">TO-HEX</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(VECTOR)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turn VECTOR into a hex-string.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TO-OCTETS"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TO-OCTETS" class="name">TO-OCTETS</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(STRING &amp;OPTIONAL FORMAT)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turns STRING into a FORMAT (default UTF-8) encoded octet-vector.</pre>
-                  </article>
-                </li><li>
-                  <a name="CRYPTO-SHORTCUTS:TO-STRING"/>
-                  <article>
-                    <header class="generic">
-                      <span class="type">generic</span>
-                      <code>
-                        <h4><a href="#CRYPTO-SHORTCUTS:TO-STRING" class="name">TO-STRING</a></h4>
-                        <span class="qualifiers"></span>
-                        <span class="arguments">(OCTETS &amp;OPTIONAL FORMAT)</span>
-                      </code>
-                    </header>
-                    <pre class="docstring">Turns OCTETS from FORMAT (default UTF-8) encoding into a string. </pre>
-                  </article>
-                </li></ul>
-            </li></ul>
-        </article>
-      
-    </div>
-  </body>
-</html>
+:BASE64  -- See TO-BASE64</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TO-BASE64"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TO-BASE64">TO-BASE64</a></code></h4> <code class="qualifiers"></code> <code class="arguments">SEQUENCE</code><code>)</code>  </header> <pre class="docstring">Turns a vector into a base64-encoded string.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TO-HEX"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TO-HEX">TO-HEX</a></code></h4> <code class="qualifiers"></code> <code class="arguments">VECTOR</code><code>)</code>  </header> <pre class="docstring">Turn VECTOR into a hex-string.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TO-OCTETS"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TO-OCTETS">TO-OCTETS</a></code></h4> <code class="qualifiers"></code> <code class="arguments">STRING &amp;OPTIONAL FORMAT</code><code>)</code>  </header> <pre class="docstring">Turns STRING into a FORMAT (default UTF-8) encoded octet-vector.</pre> </article> </li><li> <a name="CRYPTO-SHORTCUTS:TO-STRING"> </a> <article> <header class="generic"> <span class="type">generic</span>  <code>(</code><h4 class="name"><code><a href="#CRYPTO-SHORTCUTS:TO-STRING">TO-STRING</a></code></h4> <code class="qualifiers"></code> <code class="arguments">OCTETS &amp;OPTIONAL FORMAT</code><code>)</code>  </header> <pre class="docstring">Turns OCTETS from FORMAT (default UTF-8) encoding into a string. </pre> </article> </li></ul> </li></ul> </article>  </main> </body> </html> 
