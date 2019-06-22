@@ -5,7 +5,7 @@
 |#
 
 (asdf:defsystem crypto-shortcuts
-  :license "Artistic"
+  :license "zlib"
   :author "Nicolas Hafner <shinmera@tymoon.eu>"
   :maintainer "Nicolas Hafner <shinmera@tymoon.eu>"
   :description "Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding."
