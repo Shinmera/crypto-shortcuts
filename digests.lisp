@@ -8,7 +8,7 @@
 
 (defmacro define-digest-wrapper (digest)
   `(defun ,(intern (string digest)) (string &key (to :hex) encode)
-     ,@(if (ironclad:digest-supported-p digest)
+     ,@(if (ironclad:digest-supported-p (find-symbol (string digest) "IRONCLAD"))
            `(,(format NIL "Turn a string into a ~a-hash.
 
 TO is the returned representation
