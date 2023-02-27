@@ -46,5 +46,7 @@
    #:make-salt
    #:pbkdf2-key
    #:pbkdf2-hash
-   #:simple-hash))
+   #:simple-hash
+   #:rfc-2307-hash
+   #:check-rfc-2307-hash))
 (in-package #:org.shirakumo.crypto-shortcuts)

@@ -151,4 +151,24 @@ The default DIGEST is SHA512, the iteration is 1000, and TO is HEX.
 
 Four values are returned: hash, salt (as a string), digest, and iterations.
 
-See TO."))
+See TO.")
+
+  (rfc-2307-hash
+   "Hashes PASSWORD with METHOD according to the scheme defined in RFC2307.
+
+The returned hash will be a string of the format:
+
+  {method}base64hash
+
+If SALT is passed, or the method is a salted one (sDIGEST), then the salt is
+returned as a secondary value and included in the hash. The hash is thus
+computed as follows, where no salt is an empty salt sequence.
+
+  base64(digest(password+salt)+salt)
+
+See CHECK-RFC-2307-HASH")
+
+  (check-rfc-2307-hash
+   "Returns T if the PASSWORD matches the HASH encoded in the scheme defined in RFC2307.
+
+See RFC-2307-HASH"))
