@@ -36,5 +36,8 @@
    #:pbkdf2-hash
    #:simple-hash
    #:rfc-2307-hash
-   #:check-rfc-2307-hash))
+   #:check-rfc-2307-hash
+   ;; totp.lisp
+   #:totp
+   #:totp-uri))
 (in-package #:org.shirakumo.crypto-shortcuts)

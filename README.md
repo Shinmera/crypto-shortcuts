@@ -16,4 +16,9 @@ How To
 (cryptos:md5 "MD5 hashes are weak, but still sometimes useful.")
 
 (cryptos:sha512 "If you don't need hash iterations or salts like simple-hash provides, this will do too.")
+
+(cryptos:totp-uri "Someone")
+
+(cryptos:totp "some secret key for the totp")
 ```
+

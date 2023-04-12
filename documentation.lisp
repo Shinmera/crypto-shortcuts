@@ -186,3 +186,46 @@ See CHECK-RFC-2307-HASH")
    "Returns T if the PASSWORD matches the HASH encoded in the scheme defined in RFC2307.
 
 See RFC-2307-HASH"))
+
+;; totp.lisp
+(setdocs
+  (totp
+   "Computes a Timed One Time Password for the given secret key.
+
+TIME should be the universal-time for which the OTP is computed.
+DIGEST should be the HMAC inner digest used, default being SHA1.
+PERIOD should be how long the OTP is valid for in seconds, default
+being 30.
+DIGITS should be the number of digits for the OTP, default being 6.
+
+Returns the OTP as an integer. If presenting to the user, you should
+pad the integer with zeroes to the required number of digits.
+
+The code is computed according to RFC6238
+
+See TOTP-URI")
+  
+  (totp-uri
+   "Computes a URI to exchange the TOTP parameters with an external authenticator app.
+
+You will most likely want to encode the returned URI into a QR code to
+let the user scan it with a phone or other app more easily.
+
+The ACCOUNT should be some identifier for the user account this URI is
+for. Typically a username or email address.
+
+You should pass the ISSUER argument to identify the service that is
+using the TOTP.
+
+If no explicit SECRET is passed, one will be generated for you and
+is returned as the secondary value. You MUST store this secret
+somewhere and use it to compute the TOTP.
+
+You must pass the exact same parameters as you intend to use for the
+TOTP generation, as otherwise the authenticator application will not
+generate the same codes as you, and verification will fail.
+
+This URL is according to Google's Authenticator scheme as described in
+ https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+
+See TOTP"))

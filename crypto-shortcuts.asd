@@ -19,5 +19,6 @@
                (:file "crypto")
                (:file "hashing")
                (:file "digests")
+               (:file "totp")
                (:file "documentation"))
   :depends-on (:ironclad :cl-base64 :cl-base32 :flexi-streams))
