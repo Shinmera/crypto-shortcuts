@@ -166,6 +166,12 @@ computed as follows, where no salt is an empty salt sequence.
 
   base64(digest(password+salt)+salt)
 
+An extension is provided to the standard, wherein extra parameters can
+be supplied to the hashing mechanism via commas after the method
+name. For most hashes this is just the iteration count, which is
+omitted if the count is 1. For PBKDF2, this also includes the actual
+digest method used.
+
 See CHECK-RFC-2307-HASH")
 
   (check-rfc-2307-hash
