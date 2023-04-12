@@ -33,6 +33,6 @@
                      (t (format out "%~2,'0x" (char-code char))))))))
 
 (defun totp-uri (account &key (secret (make-salt 10)) issuer (digest :sha1) (period 30) (digits 6))
-  (values (format NIL "otpauth://totp/~@[~a:~]~a?secret=~a~@[&issuer=~a~]~@[&algorithm=~a~]~@[&period=~a~]~@[&digits=~a~]"
+  (values (format NIL "otpauth://totp/~@[~a:~]~a?secret=~:@(~a~)~@[&issuer=~a~]~@[&algorithm=~(~a~)~]~@[&period=~a~]~@[&digits=~a~]"
                   (url-encode issuer) (url-encode account) (url-encode (string-right-trim "=" (to-base32 secret))) (url-encode issuer) digest period digits)
           secret))
