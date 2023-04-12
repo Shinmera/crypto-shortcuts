@@ -58,6 +58,11 @@
 
 (defgeneric from-base32 (vector &optional to)
   (:method ((string string) &optional (to :string))
+    (case (mod (length string) 8)
+      (2 (setf string (format NIL "~a======" string)))
+      (4 (setf string (format NIL "~a====" string)))
+      (5 (setf string (format NIL "~a===" string)))
+      (7 (setf string (format NIL "~a==" string))))
     (to to (base32:base32-to-bytes string)))
   (:method ((vector vector) &optional (to :string))
     (from-base32 (to-string vector) to)))
