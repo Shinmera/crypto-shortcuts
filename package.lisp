@@ -26,6 +26,8 @@
    #:from-hex
    #:to-base64
    #:from-base64
+   #:to-base32
+   #:from-base32
    #:to
    #:code
    ;; hashing.lisp

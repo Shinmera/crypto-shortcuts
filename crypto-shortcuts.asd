@@ -20,4 +20,4 @@
                (:file "hashing")
                (:file "digests")
                (:file "documentation"))
-  :depends-on (:ironclad :cl-base64 :flexi-streams))
+  :depends-on (:ironclad :cl-base64 :cl-base32 :flexi-streams))

@@ -48,6 +48,20 @@
   (:method ((vector vector) &optional (to :string))
     (from-base64 (to-string vector) to)))
 
+(defgeneric to-base32 (sequence)
+  (:method ((vector vector))
+    (cl-base32:bytes-to-base32 vector))
+  (:method ((string string))
+    (to-base32 (to-octets string)))
+  (:method ((symbol symbol))
+    (to-base32 (string symbol))))
+
+(defgeneric from-base32 (vector &optional to)
+  (:method ((string string) &optional (to :string))
+    (to to (base32:base32-to-bytes string)))
+  (:method ((vector vector) &optional (to :string))
+    (from-base32 (to-string vector) to)))
+
 (defgeneric to (thing vector)
   (:method ((thing (eql NIL)) vector)
     vector)
@@ -58,7 +72,9 @@
   (:method ((thing (eql :hex)) vector)
     (to-hex vector))
   (:method ((thing (eql :base64)) vector)
-    (to-base64 vector)))
+    (to-base64 vector))
+  (:method ((thing (eql :base32)) vector)
+    (to-base32 vector)))
 
 (defgeneric code (from to vector)
   (:method ((from (eql NIL)) to vector)
@@ -72,6 +88,8 @@
     (to-hex vector))
   (:method ((from (eql :octets)) (to (eql :base64)) vector)
     (to-base64 vector))
+  (:method ((from (eql :octets)) (to (eql :base32)) vector)
+    (to-base32 vector))
   
   (:method ((from (eql :string)) (to (eql :octets)) vector)
     (to-octets vector))
@@ -81,6 +99,8 @@
     (to-hex vector))
   (:method ((from (eql :string)) (to (eql :base64)) vector)
     (to-base64 vector))
+  (:method ((from (eql :string)) (to (eql :base32)) vector)
+    (to-base32 vector))
   
   (:method ((from (eql :hex)) (to (eql :octets)) vector)
     (from-hex vector))
@@ -90,6 +110,10 @@
     vector)
   (:method ((from (eql :hex)) (to (eql :base64)) vector)
     (to-base64 (from-hex vector)))
+  (:method ((from (eql :hex)) (to (eql :base32)) vector)
+    (to-base32 (from-hex vector)))
   
   (:method ((from (eql :base64)) to vector)
-    (from-base64 vector to)))
+    (from-base64 vector to))
+  (:method ((from (eql :base32)) to vector)
+    (from-base32 vector to)))

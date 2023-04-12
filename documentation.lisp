@@ -94,6 +94,13 @@ See NORMALIZE-KEY"))
    "Turns a base64-encoded vector into a vector encoded by TO.
 See TO.")
 
+  (to-base32
+   "Turns a vector into a base32-encoded string.")
+
+  (from-base32
+   "Turns a base32-encoded vector into a vector encoded by TO.
+See TO.")
+
   (to
    "Convenience function to call the various encoders.
 By default, THING can be one of:
@@ -102,13 +109,14 @@ NIL      -- Returns VECTOR
 :OCTETS  -- See TO-OCTETS
 :STRING  -- See TO-STRING
 :HEX     -- See TO-HEX
-:BASE64  -- See TO-BASE64")
+:BASE64  -- See TO-BASE64
+:BASE32  -- See TO-BASE32")
 
   (code
    "Convenience function to de/encode in one pass.
 By default, FROM and TO can both be one of:
 
-:OCTETS :STRING :HEX :BASE64
+:OCTETS :STRING :HEX :BASE64 :BASE32
 
 If FROM is NIL, then TO is called with the remaining arguments."))
 
