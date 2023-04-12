@@ -17,22 +17,8 @@
    #:hmac
    #:cmac
    ;; digests.lisp
-   #:md4
-   #:sha1
-   #:md5
-   #:crc24
-   #:adler32
-   #:tiger
-   #:sha256
-   #:ripemd-128
-   #:ripemd-160
-   #:crc32
-   #:whirlpool
-   #:sha224
-   #:sha512
-   #:sha384
-   #:md2
-   #:tree-hash
+   ;; auto-export
+   #:find-digest
    ;; encode.lisp
    #:to-octets
    #:to-string
