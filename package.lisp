@@ -39,5 +39,6 @@
    #:check-rfc-2307-hash
    ;; totp.lisp
    #:totp
-   #:totp-uri))
+   #:totp-uri
+   #:decode-totp-uri))
 (in-package #:org.shirakumo.crypto-shortcuts)

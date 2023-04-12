@@ -228,4 +228,14 @@ generate the same codes as you, and verification will fail.
 This URL is according to Google's Authenticator scheme as described in
  https://github.com/google/google-authenticator/wiki/Key-Uri-Format
 
-See TOTP"))
+See TOTP")
+
+  (decode-totp-uri
+   "Decodes a TOTP parameter URI
+
+Returns a list of the same argument list structure as TOTP-URI.
+
+This URL is according to Google's Authenticator scheme as described in
+ https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+
+See TOTP-URI"))
