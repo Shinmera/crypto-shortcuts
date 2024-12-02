@@ -1,0 +1,576 @@
+<!DOCTYPE html> <html lang="EN"> <head> <meta charset="utf-8"> <title>Crypto Shortcuts</title> <style>html body{margin:0 auto 0 auto;padding:20px;max-width:1024px;font-family:sans-serif;font-size:14pt;overflow-y:scroll;}html body a{text-decoration:none;}html body a[href]{color:#0055AA;}html body a[href]:hover{color:#0088EE;}html body pre{background:#FAFAFA;border:1px solid #DDDDDD;padding:0.75em;overflow-x:auto;}html body pre >code a[href]{color:#223388;}article.project h1{font-size:1.7em;}article.project h1,article.project h2,article.project h3,article.project h4,article.project h5,article.project h6{margin:0.2em 0 0.1em 0;text-indent:1em;}article.project >header{text-align:center;}article.project >header img.logo{display:block;margin:auto;max-height:170px;}article.project >header h1{display:inline-block;text-indent:0;font-size:2.5em;}article.project >header .version{vertical-align:bottom;}article.project >header .languages{margin-top:-0.5em;text-transform:capitalize;}article.project >header .description{margin:0;}article.project >header .pages{margin-top:0.5em;font-size:1.2em;text-transform:capitalize;}article.project >header .pages a{display:inline-block;padding:0 0.2em;}article.project >section{margin:1em 0 1em 0;}article.project >section img{max-width:100%;}article.project #index >ul{list-style:none;margin:0;padding:0;}article.project .row label{display:inline-block;min-width:8em;}article.project #system .row{display:flex;}article.project #system #dependencies{display:inline;margin:0;padding:0;}article.project #system #dependencies li{display:inline;padding:0 0.2em;}article.project #system #author label{vertical-align:top;}article.project #system #author ul{display:inline-block;margin:0;padding:0;list-style:none;}article.project #toc nav>*{margin-left:1em;display:block;}article.definition{margin:1em 0 0 0;}article.definition >header h1,article.definition >header h2,article.definition >header h3,article.definition >header h4,article.definition >header h5,article.definition >header h6{text-indent:0;display:inline-block;}article.definition >header ul{display:inline-block;list-style:none;margin:0;padding:0;}article.definition >header ul li{display:inline-block;padding:0 0.2em 0 0;}article.definition >header .visibility{display:none;}article.definition >header .visibility,article.definition >header .type{text-transform:lowercase;}article.definition >header .source-link{visibility:hidden;float:right;}article.definition >header .source-link:after{visibility:visible;content:"[SRC]";}article.definition .docstring{margin:0 0 0 1em;}article.definition .docstring pre{font-size:0.8em;white-space:pre-wrap;}.definition.package >header ul.nicknames{display:inline-block;list-style:none;margin:0;padding:0 0 0 1em;}.definition.package >header ul.nicknames li{display:inline;}.definition.package >header ul.nicknames:before{content:"(";}.definition.package >header ul.nicknames:after{content:")";}.definition.package ul.definitions{margin:0;list-style:none;padding:0 0 0 0.5em;}.definition.callable >header .name:before,.definition.type >header .name:before{content:"(";font-weight:normal;}.definition.callable >header .arguments:after,.definition.type >header .arguments:after{content:")";}.definition.callable >header .arguments .arguments:before,.definition.type >header .arguments .arguments:before{content:"(";}.definition.callable >header .arguments .argument,.definition.type >header .arguments .argument{padding:0;}.definition.callable >header .arguments .argument.lambda-list-keyword,.definition.type >header .arguments .argument.lambda-list-keyword{color:#991155;}.definition li>mark{background:none;border-left:0.3em solid #0088EE;padding-left:0.3em;display:block;}@media (min-width: 1300px){html body{padding-left:16em;}article.project #toc{margin:0;position:fixed;left:0;top:0;bottom:0;width:15em;overflow-y:auto;background:#F0F0F0;border-right:1px solid #A0A0A0;}}</style> </head> <body> <article class="project"> <header>   <h1>crypto shortcuts</h1>   <span class="version">2.0.0</span>    <p class="description">Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding.</p>   </header> <section id="toc"> <h2>Table of Contents</h2> <nav> <a href="#project">Top</a>  <a href="#documentation">Documentation</a> <nav> <a href="#about_crypto_shortcuts">About Crypto Shortcuts</a>  <a href="#how_to">How To</a> </nav>  <a href="#system">System</a>  <a href="#system">Packages</a> <nav> <a href="#PACKAGE%20CRYPTO-SHORTCUTS">CRYPTO-SHORTCUTS</a> </nav>  </nav> </section>  <section id="documentation"><h2 id="about_crypto_shortcuts">About Crypto Shortcuts</h2> <p>This is a small wrapper library around ironclad and cl-base64 to provide quick and easy access to frequently used cryptography functionality like hashing, encoding and encrypting.</p> <h2 id="how_to">How To</h2> <pre><code>(<a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AFROM-BASE64" class="xref">cryptos:from-base64</a> (<a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-BASE64" class="xref">cryptos:to-base64</a> &quot;ＣＬがすごいです。&quot;))
+
+(<a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ADECRYPT" class="xref">cryptos:decrypt</a> (<a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AENCRYPT" class="xref">cryptos:encrypt</a> &quot;Lispy Secrets, oooOOooo&quot; &quot;1234567890123456&quot;) &quot;1234567890123456&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3APBKDF2-HASH" class="xref">cryptos:pbkdf2-hash</a> &quot;My passwords have never been this secure, whoa nelly!&quot; &quot;salty snacks&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASIMPLE-HASH" class="xref">cryptos:simple-hash</a> &quot;I guess not everyone can afford PBKDF2.&quot; &quot;crisps&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AMD5" class="xref">cryptos:md5</a> &quot;MD5 hashes are weak, but still sometimes useful.&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA512" class="xref">cryptos:sha512</a> &quot;If you don't need hash iterations or salts like simple-hash provides, this will do too.&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP-URI" class="xref">cryptos:totp-uri</a> &quot;Someone&quot;)
+
+(<a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP" class="xref">cryptos:totp</a> &quot;some secret key for the totp&quot;)</code></pre> </section>    <section id="system"> <h2>System Information</h2>  <div class="row"> <label for="version">Version:</label> <a id="version">2.0.0</a> </div>   <div class="row"> <label for="dependencies">Dependencies:</label> <ul id="dependencies"><li><a class="external">ironclad</a></li><li><a class="external">cl-base64</a></li><li><a class="external">cl-base32</a></li><li><a class="external">flexi-streams</a></li></ul> </div>   <div class="row" id="author"> <label for="author">Author:</label> <a href="mailto:shinmera@tymoon.eu">Yukari Hafner</a> </div>   <div class="row"> <label for="license">License:</label> <a id="license" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/LICENSE">zlib</a> </div>   <div class="row"> <label for="homepage">Homepage:</label> <a id="homepage" href="https://Shinmera.github.io/crypto-shortcuts/">https://Shinmera.github.io/crypto-shortcuts/</a> </div>   <div class="row"> <label for="bug-tracker">Bug Tracker:</label> <a id="bug-tracker" href="https://github.com/Shinmera/crypto-shortcuts/issues">https://github.com/Shinmera/crypto-shortcuts/issues</a> </div>   <div class="row"> <label for="sources">Sources:</label> <a id="sources" href="https://github.com/Shinmera/crypto-shortcuts.git">https://github.com/Shinmera/crypto-shortcuts.git</a> </div>  </section>    <section id="index"> <h2>Definition Index</h2> <ul> <li> <article class="definition package" id="PACKAGE CRYPTO-SHORTCUTS"> <header> <h3> <a href="#PACKAGE%20CRYPTO-SHORTCUTS">CRYPTO-SHORTCUTS</a> </h3> <ul class="nicknames"> <li>ORG.SHIRAKUMO.CRYPTO-SHORTCUTS</li>  <li>CRYPTOS</li> </ul>  </header> <div class="docstring"><i>No documentation provided.</i></div> <ul class="definitions"> <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:ADLER32"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AADLER32">ADLER32</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a ADLER32-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2">BLAKE2</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2/160"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2%2F160">BLAKE2/160</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2/160-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2%2F256">BLAKE2/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2%2F384">BLAKE2/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2S"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2S">BLAKE2S</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2S-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2S/128"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2S%2F128">BLAKE2S/128</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2S/128-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2S/160"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2S%2F160">BLAKE2S/160</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2S/160-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:BLAKE2S/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ABLAKE2S%2F224">BLAKE2S/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a BLAKE2S/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:CHECK-RFC-2307-HASH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ACHECK-RFC-2307-HASH">CHECK-RFC-2307-HASH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">PASSWORD</li>    <li class="argument">HASH</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L76">Source</a>  </header> <div class="docstring"><pre>Returns T if the PASSWORD matches the HASH encoded in the scheme defined in RFC2307.
+
+See <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ARFC-2307-HASH" class="xref">RFC-2307-HASH</a></pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:CRC24"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ACRC24">CRC24</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a CRC24-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:CRC32"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ACRC32">CRC32</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a CRC32-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:CRC32C"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ACRC32C">CRC32C</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a CRC32C-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:DECODE-TOTP-URI"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ADECODE-TOTP-URI">DECODE-TOTP-URI</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">URI</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/totp.lisp#L45">Source</a>  </header> <div class="docstring"><pre>Decodes a TOTP parameter URI
+
+Returns a list of the same argument list structure as TOTP-URI.
+
+This URL is according to Google's Authenticator scheme as described in
+ https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+
+See <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP-URI" class="xref">TOTP-URI</a></pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:FIND-DIGEST"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AFIND-DIGEST">FIND-DIGEST</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">NAME</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L30">Source</a>  </header> <div class="docstring"><i>No documentation provided.</i></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:GROESTL"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AGROESTL">GROESTL</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a GROESTL-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:GROESTL/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AGROESTL%2F224">GROESTL/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a GROESTL/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:GROESTL/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AGROESTL%2F256">GROESTL/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a GROESTL/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:GROESTL/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AGROESTL%2F384">GROESTL/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a GROESTL/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:JH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AJH">JH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a JH-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:JH/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AJH%2F224">JH/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a JH/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:JH/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AJH%2F256">JH/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a JH/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:JH/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AJH%2F384">JH/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a JH/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KECCAK"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKECCAK">KECCAK</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KECCAK-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KECCAK/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKECCAK%2F224">KECCAK/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KECCAK/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KECCAK/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKECCAK%2F256">KECCAK/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KECCAK/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KECCAK/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKECCAK%2F384">KECCAK/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KECCAK/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KUPYNA"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKUPYNA">KUPYNA</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KUPYNA-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:KUPYNA/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AKUPYNA%2F256">KUPYNA/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a KUPYNA/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:MD2"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AMD2">MD2</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a MD2-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:MD4"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AMD4">MD4</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a MD4-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:MD5"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AMD5">MD5</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a MD5-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:PBKDF2-HASH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3APBKDF2-HASH">PBKDF2-HASH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">PASSWORD</li>    <li class="argument">SALT</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">DIGEST</li>    <li class="argument">ITERATIONS</li>    <li class="argument">TO</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L13">Source</a>  </header> <div class="docstring"><pre>Hasehs PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
+The returned hash is encoded using the method specified in TO.
+
+The default DIGEST is SHA512, the iteration is 1000, and TO is HEX.
+
+Four values are returned: hash, salt (as a string), digest, and iterations.
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:PBKDF2-KEY"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3APBKDF2-KEY">PBKDF2-KEY</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">PASSWORD</li>    <li class="argument">SALT</li>    <li class="argument lambda-list-keyword">&amp;REST</li>    <li class="argument">ARGS</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">DIGEST</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L9">Source</a>  </header> <div class="docstring"><pre>Hashes PASSWORD with SALT using the PBKDF2 method and the provided DIGEST, repeating the process ITERATION times.
+
+The default DIGEST is SHA512, and the iteration is 1000.
+
+Four values are returned: hash as an octet-vector, salt (as a string), digest, and iterations.
+
+LEGACY. Use PBKDF2-HASH instead.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:RFC-2307-HASH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ARFC-2307-HASH">RFC-2307-HASH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">PASSWORD</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">METHOD</li>    <li class="argument">SALT</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L44">Source</a>  </header> <div class="docstring"><pre>Hashes PASSWORD with METHOD according to the scheme defined in RFC2307.
+
+The returned hash will be a string of the format:
+
+  {method}base64hash
+
+If SALT is passed, or the method is a salted one (sDIGEST), then the salt is
+returned as a secondary value and included in the hash. The hash is thus
+computed as follows, where no salt is an empty salt sequence.
+
+  base64(digest(password+salt)+salt)
+
+An extension is provided to the standard, wherein extra parameters can
+be supplied to the hashing mechanism via commas after the method
+name. For most hashes this is just the iteration count, which is
+omitted if the count is 1. For PBKDF2, this also includes the actual
+digest method used.
+
+See <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ACHECK-RFC-2307-HASH" class="xref">CHECK-RFC-2307-HASH</a></pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:RIPEMD-128"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ARIPEMD-128">RIPEMD-128</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a RIPEMD-128-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:RIPEMD-160"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ARIPEMD-160">RIPEMD-160</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a RIPEMD-160-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA1"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA1">SHA1</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA1-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA224">SHA224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA256">SHA256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA3"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA3">SHA3</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA3-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA3/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA3%2F224">SHA3/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA3/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA3/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA3%2F256">SHA3/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA3/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA3/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA3%2F384">SHA3/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA3/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA384">SHA384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHA512"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHA512">SHA512</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHA512-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHAKE128"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHAKE128">SHAKE128</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHAKE128-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SHAKE256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASHAKE256">SHAKE256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SHAKE256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SIMPLE-HASH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASIMPLE-HASH">SIMPLE-HASH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">PASSWORD</li>    <li class="argument">SALT</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">DIGEST</li>    <li class="argument">ITERATIONS</li>    <li class="argument">TO</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L22">Source</a>  </header> <div class="docstring"><pre>Hashes PASSWORD with SALT using DIGEST as the digest-method and repeats the hashing ITERATIONS times.
+The returned hash is encoded using the method specified in TO.
+
+The default DIGEST is SHA512, the iteration is 1000, and TO is HEX.
+
+Four values are returned: hash, salt (as a string), digest, and iterations.
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN1024"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN1024">SKEIN1024</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN1024-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN1024/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN1024%2F384">SKEIN1024/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN1024/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN1024/512"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN1024%2F512">SKEIN1024/512</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN1024/512-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN256">SKEIN256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN256/128"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN256%2F128">SKEIN256/128</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN256/128-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN256/160"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN256%2F160">SKEIN256/160</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN256/160-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN256/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN256%2F224">SKEIN256/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN256/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512">SKEIN512</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512/128"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512%2F128">SKEIN512/128</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512/128-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512/160"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512%2F160">SKEIN512/160</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512/160-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512/224"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512%2F224">SKEIN512/224</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512/224-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512%2F256">SKEIN512/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SKEIN512/384"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASKEIN512%2F384">SKEIN512/384</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SKEIN512/384-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:SM3"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASM3">SM3</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a SM3-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:STREEBOG"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASTREEBOG">STREEBOG</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a STREEBOG-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:STREEBOG/256"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ASTREEBOG%2F256">STREEBOG/256</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a STREEBOG/256-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:TIGER"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATIGER">TIGER</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a TIGER-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:TOTP"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP">TOTP</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">SECRET</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TIME</li>    <li class="argument">DIGEST</li>    <li class="argument">PERIOD</li>    <li class="argument">DIGITS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/totp.lisp#L3">Source</a>  </header> <div class="docstring"><pre>Computes a Timed One Time Password for the given secret key.
+
+TIME should be the universal-time for which the OTP is computed.
+DIGEST should be the HMAC inner digest used, default being SHA1.
+PERIOD should be how long the OTP is valid for in seconds, default
+being 30.
+DIGITS should be the number of digits for the OTP, default being 6.
+
+Returns the OTP as an integer. If presenting to the user, you should
+pad the integer with zeroes to the required number of digits.
+
+The code is computed according to RFC6238
+
+See <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP-URI" class="xref">TOTP-URI</a></pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:TOTP-URI"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP-URI">TOTP-URI</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">ACCOUNT</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">SECRET</li>    <li class="argument">ISSUER</li>    <li class="argument">DIGEST</li>    <li class="argument">PERIOD</li>    <li class="argument">DIGITS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/totp.lisp#L40">Source</a>  </header> <div class="docstring"><pre>Computes a URI to exchange the TOTP parameters with an external authenticator app.
+
+You will most likely want to encode the returned URI into a QR code to
+let the user scan it with a phone or other app more easily.
+
+The ACCOUNT should be some identifier for the user account this URI is
+for. Typically a username or email address.
+
+You should pass the ISSUER argument to identify the service that is
+using the TOTP.
+
+If no explicit SECRET is passed, one will be generated for you and
+is returned as the secondary value. You MUST store this secret
+somewhere and use it to compute the TOTP.
+
+You must pass the exact same parameters as you intend to use for the
+TOTP generation, as otherwise the authenticator application will not
+generate the same codes as you, and verification will fail.
+
+This URL is according to Google's Authenticator scheme as described in
+ https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+
+See <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATOTP" class="xref">TOTP</a></pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:TREE-HASH"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3ATREE-HASH">TREE-HASH</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a TREE-HASH-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition function callable" id="FUNCTION CRYPTO-SHORTCUTS:WHIRLPOOL"> <header> <span class="visibility">EXTERNAL</span> <span class="type">FUNCTION</span> <h4 class="name"> <a href="#FUNCTION%20CRYPTO-SHORTCUTS%3AWHIRLPOOL">WHIRLPOOL</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">TO</li>    <li class="argument">ENCODE</li>    <li class="argument">ITERATIONS</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/digests.lisp#L24">Source</a>  </header> <div class="docstring"><pre>Turn a string into a WHIRLPOOL-hash.
+
+TO is the returned representation
+ENCODE is the encoding before hashing
+ITERATIONS is the number of times to hash
+
+See TO.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:CMAC"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ACMAC">CMAC</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">TEXT</li>    <li class="argument">KEY</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">CIPHER</li>    <li class="argument">MODE</li>    <li class="argument">IV</li>    <li class="argument">TO</li>    <li class="argument">NORMALIZE-KEY</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L43">Source</a>  </header> <div class="docstring"><pre>Generate a CMAC digest of TEXT using KEY and the provided CIPHER/MODE/IV.
+The returned digest is encoded by the format specified in TO.
+
+The default cipher is AES, default mode is ECB, and default TO is BASE64.
+
+Four values are returned: digest, key, cipher, mode, and IV.
+
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO" class="xref">TO</a>
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ANORMALIZE-KEY" class="xref">NORMALIZE-KEY</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:CODE"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ACODE">CODE</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">FROM</li>    <li class="argument">TO</li>    <li class="argument">VECTOR</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L76">Source</a>  </header> <div class="docstring"><pre>Convenience function to de/encode in one pass.
+By default, FROM and TO can both be one of:
+
+:OCTETS :STRING :HEX :BASE64 :BASE32
+
+If FROM is NIL, then TO is called with the remaining arguments.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:DECRYPT"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ADECRYPT">DECRYPT</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">TEXT</li>    <li class="argument">KEY</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">CIPHER</li>    <li class="argument">MODE</li>    <li class="argument">IV</li>    <li class="argument">FROM</li>    <li class="argument">NORMALIZE-KEY</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L28">Source</a>  </header> <div class="docstring"><pre>Decrypt TEXT with KEY using the provided CIPHER/MODE/IV.
+Depending on the mode, the key should be of length 16, 32, or 64.
+The passed text is decoded by the format specified in FROM.
+
+The default cipher is AES, default mode is ECB, and default TO is BASE64.
+
+Four values are returned: Decrypted text, key, cipher, mode, and IV.
+
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ACODE" class="xref">CODE</a>
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ANORMALIZE-KEY" class="xref">NORMALIZE-KEY</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:ENCRYPT"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AENCRYPT">ENCRYPT</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">TEXT</li>    <li class="argument">KEY</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">CIPHER</li>    <li class="argument">MODE</li>    <li class="argument">IV</li>    <li class="argument">TO</li>    <li class="argument">NORMALIZE-KEY</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L20">Source</a>  </header> <div class="docstring"><pre>Encrypt TEXT with KEY using the provided CIPHER/MODE/IV.
+Depending on the mode, the key should be of length 16, 32, or 64.
+The returned encrypted vector is encoded by the format specified in TO.
+
+The default cipher is AES, default mode is ECB, and default TO is BASE64.
+
+Four values are returned: Encrypted&amp;encoded text, key, cipher, mode, and IV.
+
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO" class="xref">TO</a>
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ANORMALIZE-KEY" class="xref">NORMALIZE-KEY</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:FROM-BASE32"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AFROM-BASE32">FROM-BASE32</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">VECTOR</li>    <li class="argument lambda-list-keyword">&amp;OPTIONAL</li>    <li class="argument">TO</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L53">Source</a>  </header> <div class="docstring"><pre>Turns a base32-encoded vector into a vector encoded by TO.
+See TO.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:FROM-BASE64"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AFROM-BASE64">FROM-BASE64</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">VECTOR</li>    <li class="argument lambda-list-keyword">&amp;OPTIONAL</li>    <li class="argument">TO</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L39">Source</a>  </header> <div class="docstring"><pre>Turns a base64-encoded vector into a vector encoded by TO.
+See TO.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:FROM-HEX"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AFROM-HEX">FROM-HEX</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">HEX-STRING</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L25">Source</a>  </header> <div class="docstring"><pre>Turn the hex-string into an octet-vector.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:GET-CIPHER"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AGET-CIPHER">GET-CIPHER</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">KEY</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">CIPHER</li>    <li class="argument">MODE</li>    <li class="argument">IV</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L16">Source</a>  </header> <div class="docstring"><pre>Return the corresponding cipher with KEY using MODE and potentially the initialization-vector IV.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:HMAC"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AHMAC">HMAC</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">TEXT</li>    <li class="argument">KEY</li>    <li class="argument lambda-list-keyword">&amp;KEY</li>    <li class="argument">DIGEST</li>    <li class="argument">TO</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L36">Source</a>  </header> <div class="docstring"><pre>Generate an HMAC digest of TEXT using KEY and the provided DIGEST method.
+The returned digest is encoded by the format specified in TO.
+
+The default digest is SHA512, and default TO is BASE64.
+
+Three values are returned: digest, key, and digest-type.
+
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO" class="xref">TO</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:MAKE-SALT"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3AMAKE-SALT">MAKE-SALT</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">SALT</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/hashing.lisp#L3">Source</a>  </header> <div class="docstring"><pre>Create a salt from the given object.
+
+(eql T) -- A random salt
+INTEGER -- A salt of this size
+STRING  -- Use this string as an octet-vector
+VECTOR  -- Use this vector directly
+
+See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-OCTETS" class="xref">TO-OCTETS</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:NORMALIZE-KEY"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ANORMALIZE-KEY">NORMALIZE-KEY</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">METHOD</li>    <li class="argument">KEY</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/crypto.lisp#L3">Source</a>  </header> <div class="docstring"><pre>Normalizes the KEY to an octet-vector using METHOD.
+By default, method can be one of:
+
+:HASH  -- Hash it by sha256
+:FIT   -- Truncate or pad it out before turning into octets.
+NIL    -- Just turn it into an octet-vector.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO">TO</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">THING</li>    <li class="argument">VECTOR</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L62">Source</a>  </header> <div class="docstring"><pre>Convenience function to call the various encoders.
+By default, THING can be one of:
+
+NIL      -- Returns VECTOR
+:OCTETS  -- See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-OCTETS" class="xref">TO-OCTETS</a>
+:STRING  -- See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-STRING" class="xref">TO-STRING</a>
+:HEX     -- See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-HEX" class="xref">TO-HEX</a>
+:BASE64  -- See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-BASE64" class="xref">TO-BASE64</a>
+:BASE32  -- See <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-BASE32" class="xref">TO-BASE32</a></pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO-BASE32"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-BASE32">TO-BASE32</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">SEQUENCE</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L45">Source</a>  </header> <div class="docstring"><pre>Turns a vector into a base32-encoded string.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO-BASE64"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-BASE64">TO-BASE64</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">SEQUENCE</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L29">Source</a>  </header> <div class="docstring"><pre>Turns a vector into a base64-encoded string.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO-HEX"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-HEX">TO-HEX</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">VECTOR</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L17">Source</a>  </header> <div class="docstring"><pre>Turn VECTOR into a hex-string.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO-OCTETS"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-OCTETS">TO-OCTETS</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">STRING</li>    <li class="argument lambda-list-keyword">&amp;OPTIONAL</li>    <li class="argument">FORMAT</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L3">Source</a>  </header> <div class="docstring"><pre>Turns STRING into a FORMAT (default UTF-8) encoded octet-vector.</pre></div> </article> </li>  <li> <article class="definition generic-function callable" id="GENERIC-FUNCTION CRYPTO-SHORTCUTS:TO-STRING"> <header> <span class="visibility">EXTERNAL</span> <span class="type">GENERIC-FUNCTION</span> <h4 class="name"> <a href="#GENERIC-FUNCTION%20CRYPTO-SHORTCUTS%3ATO-STRING">TO-STRING</a> </h4> <ul class="qualifiers"></ul> <ul class="arguments">  <li class="argument">OCTETS</li>    <li class="argument lambda-list-keyword">&amp;OPTIONAL</li>    <li class="argument">FORMAT</li>  </ul>  <a class="source-link" href="https://github.com/Shinmera/crypto-shortcuts/blob/ecd8fdccf8913f241d7c63932ed25fd710d05116/encode.lisp#L11">Source</a>  </header> <div class="docstring"><pre>Turns OCTETS from FORMAT (default UTF-8) encoding into a string. </pre></div> </article> </li> </ul> </article> </li> </ul> </section>  </article> <script>window.addEventListener("DOMContentLoaded", function(){
+    var unmarkElement = function(el){
+        if(el.tagName === "mark" || el.tagName === "MARK"){
+            [].forEach.call(el.childNodes, function(child){
+                el.parentNode.insertBefore(child, el);
+            });
+            el.parentNode.removeChild(el);
+        }else if(el.parentNode.tagName === "mark"){
+            return unmarkElement(el.parentNode);
+        }
+        return null;
+    }
+
+    var unmarkAll = function(root){
+        root = root || document;
+        [].forEach.call(root.querySelectorAll("mark"), unmarkElement);
+    }
+    
+    var markElement = function(el){
+        if(el.parentNode.tagName === "mark" || el.parentNode.tagName === "MARK"){
+            return el.parentNode;
+        } else {
+            unmarkAll();
+            var marked = document.createElement("mark");
+            el.parentNode.insertBefore(marked, el);
+            marked.appendChild(el);
+            return marked;
+        }
+    }
+
+    var markFragmented = function(){
+        if(window.location.hash){
+            var el = document.getElementById(decodeURIComponent(window.location.hash.substr(1)));
+            if(el) markElement(el);
+        }
+    }
+
+    var registerXrefLink = function(link){
+        var el = document.getElementById(decodeURIComponent(link.getAttribute("href").substr(1)));
+        if(el){
+            link.addEventListener("click", function(){
+                markElement(el);
+            });
+        }
+    }
+
+    var registerXrefLinks = function(root){
+        root = root || document;
+        [].forEach.call(root.querySelectorAll("a.xref"), registerXrefLink);
+    }
+
+    markFragmented();
+    registerXrefLinks();
+}); </script> </body> </html> 
