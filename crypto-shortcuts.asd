@@ -3,9 +3,9 @@
   :author "Yukari Hafner <shinmera@tymoon.eu>"
   :maintainer "Yukari Hafner <shinmera@tymoon.eu>"
   :description "Shorthand functions for common cryptography tasks such as hashing, encrypting, and encoding."
-  :homepage "https://Shinmera.github.io/crypto-shortcuts/"
-  :bug-tracker "https://github.com/Shinmera/crypto-shortcuts/issues"
-  :source-control (:git "https://github.com/Shinmera/crypto-shortcuts.git")
+  :homepage "https://shinmera.com/docs/crypto-shortcuts/"
+  :bug-tracker "https://shinmera.com/project/crypto-shortcuts/issues"
+  :source-control (:git "https://shinmera.com/project/crypto-shortcuts.git")
   :version "2.0.0"
   :serial T
   :components ((:file "package")
